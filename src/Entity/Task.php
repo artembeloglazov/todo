@@ -33,6 +33,9 @@ class Task
     #[ORM\JoinColumn(nullable: true)]
     private ?User $assigned = null;
 
+    #[ORM\ManyToOne(inversedBy: 'tasks')]
+    private ?Calendar $calendar = null;
+
     public function getId(): int
     {
         return $this->id;
@@ -111,6 +114,18 @@ class Task
     public function setDateStart(?\DateTimeInterface $dateStart): static
     {
         $this->dateStart = $dateStart;
+
+        return $this;
+    }
+
+    public function getCalendar(): ?Calendar
+    {
+        return $this->calendar;
+    }
+
+    public function setCalendar(?Calendar $calendar): static
+    {
+        $this->calendar = $calendar;
 
         return $this;
     }
