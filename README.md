@@ -1,3 +1,3 @@
-# Репозиторий для сдачи ДЗ по курсу Symfony
+# Todo API
 
-https://otus.ru/lessons/symfony/?utm_source=github&utm_medium=free&utm_campaign=otus
+> Приложение для планирования.

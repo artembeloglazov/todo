@@ -24,6 +24,9 @@ class Task
     private string $description;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateStart = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DateTimeInterface $dateDue = null;
 
     #[ORM\ManyToOne(inversedBy: 'tasks')]
@@ -97,6 +100,18 @@ class Task
     public function setId(int $id): Task
     {
         $this->id = $id;
+        return $this;
+    }
+
+    public function getDateStart(): ?\DateTimeInterface
+    {
+        return $this->dateStart;
+    }
+
+    public function setDateStart(?\DateTimeInterface $dateStart): static
+    {
+        $this->dateStart = $dateStart;
+
         return $this;
     }
 }
