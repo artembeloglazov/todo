@@ -12,6 +12,8 @@ class CalendarFixtures extends Fixture {
 			$calendar = new Calendar();
 			$name = md5(uniqid(rand(), true));
 			$calendar->setName($name);
+			$calendar->setCreatedAt();
+			$calendar->setUpdatedAt();
 			$calendar->setFileName($name.'.ical');
 			$calendar->setIsExport(array_rand([true, false]));
 			$manager->persist($calendar);
