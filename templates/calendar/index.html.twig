@@ -9,9 +9,10 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>IsExport</th>
-                <th>FileName</th>
                 <th>Name</th>
+                <th>IsExport</th>
+                <th>createdAt</th>
+                <th>updatedAt</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,9 +20,10 @@
         {% for calendar in calendars %}
             <tr>
                 <td>{{ calendar.id }}</td>
-                <td>{{ calendar.isExport ? 'Yes' : 'No' }}</td>
-                <td>{{ calendar.fileName }}</td>
                 <td>{{ calendar.name }}</td>
+                <td>{{ calendar.isExport ? 'Yes' : 'No' }}</td>
+                <td>{{ calendar.createdAt }}</td>
+                <td>{{ calendar.updatedAt }}</td>
                 <td>
                     <a href="{{ path('app_calendar_show', {'id': calendar.id}) }}">show</a>
                     <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}">edit</a>

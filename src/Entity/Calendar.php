@@ -102,12 +102,8 @@ class Calendar {
 		return $this;
 	}
 
-	public function __toString(): string {
-		return $this->getName();
-	}
-
-	public function getCreatedAt(): DateTime {
-		return $this->createdAt;
+	public function getCreatedAt(): string {
+		return $this->createdAt->format('Y-m-d H:i:s');
 	}
 
 	public function setCreatedAt(): static {
@@ -116,8 +112,8 @@ class Calendar {
 		return $this;
 	}
 
-	public function getUpdatedAt(): DateTime {
-		return $this->updatedAt;
+	public function getUpdatedAt(): string {
+		return $this->updatedAt->format('Y-m-d H:i:s');
 	}
 
 	public function setUpdatedAt(): static {
@@ -125,4 +121,9 @@ class Calendar {
 
 		return $this;
 	}
+
+	public function __toString(): string {
+		return $this->getName();
+	}
+
 }
