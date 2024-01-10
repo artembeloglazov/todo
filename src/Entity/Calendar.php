@@ -24,6 +24,9 @@ class Calendar
     #[ORM\OneToMany(mappedBy: 'calendar', targetEntity: Task::class)]
     private Collection $tasks;
 
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
@@ -84,6 +87,18 @@ class Calendar
                 $task->setCalendar(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
 
         return $this;
     }

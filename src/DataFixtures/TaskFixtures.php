@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Calendar;
 use App\Entity\Task;
 use App\Entity\User;
 use DateTimeImmutable;
@@ -14,6 +15,7 @@ class TaskFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $users = $manager->getRepository(User::class)->findAll();
+        $calendars = $manager->getRepository(Calendar::class)->findAll();
         for ($i = 0; $i < 100; $i++) {
             $task = new Task();
             $task->setTitle(uniqid());
@@ -22,6 +24,7 @@ class TaskFixtures extends Fixture implements DependentFixtureInterface
             $task->setDateStart((new DateTimeImmutable())->modify("-$days day"));
             $task->setDateDue((new DateTimeImmutable())->modify("+$days day"));
             $task->setAssigned($users[rand(0, count($users) - 1)]);
+			$task->setCalendar($calendars[rand(0, count($calendars) - 1)]);
             $manager->persist($task);
         }
         $manager->flush();
@@ -29,6 +32,6 @@ class TaskFixtures extends Fixture implements DependentFixtureInterface
 
     public function getDependencies(): array
     {
-        return [UserFixtures::class];
+        return [CalendarFixtures::class, UserFixtures::class];
     }
 }
