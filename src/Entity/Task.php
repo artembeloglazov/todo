@@ -24,7 +24,7 @@ class Task
     private string $description;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $dateStart = null;
+    private ?DateTimeInterface $dateStart = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DateTimeInterface $dateDue = null;
@@ -106,12 +106,12 @@ class Task
         return $this;
     }
 
-    public function getDateStart(): ?\DateTimeInterface
+    public function getDateStart(): ?DateTimeInterface
     {
         return $this->dateStart;
     }
 
-    public function setDateStart(?\DateTimeInterface $dateStart): static
+    public function setDateStart(?DateTimeInterface $dateStart): static
     {
         $this->dateStart = $dateStart;
 
