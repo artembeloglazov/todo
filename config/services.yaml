@@ -26,3 +26,8 @@ services:
     App\Symfony\MigrationEventSubscriber:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
+
+    App\Service\CalendarService:
+        arguments:
+            $icalFilePath: '%env(ICAL_FILE_PATH)%'
+        public: true

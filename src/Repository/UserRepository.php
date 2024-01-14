@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  * @method User[]    findAll()
  * @method User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UserRepository extends EntityRepository implements PasswordUpgraderInterface
+class UserRepository extends EntityRepository
 {
     /**
      * @return User[]

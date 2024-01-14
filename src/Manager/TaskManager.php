@@ -4,7 +4,7 @@ namespace App\Manager;
 
 use App\DTO\TaskInputDTO;
 use App\Entity\Task;
-use DateTimeImmutable;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Throwable;
@@ -25,7 +25,7 @@ class TaskManager
             $task->setTitle($addTaskDTO->getTitle());
             $task->setDescription($addTaskDTO->getDescription());
             if ($addTaskDTO->getDateDue()) {
-                $task->setDateDue(new DateTimeImmutable($addTaskDTO->getDateDue()));
+                $task->setDateDue(new DateTime($addTaskDTO->getDateDue()));
             }
             $this->entityManager->persist($task);
             $this->entityManager->flush();
@@ -50,7 +50,7 @@ class TaskManager
                 $task->setDescription($taskInputDTO->getDescription());
             }
             if ($taskInputDTO->getDateDue()) {
-                $task->setDateDue(new DateTimeImmutable($taskInputDTO->getDateDue()));
+                $task->setDateDue(new DateTime($taskInputDTO->getDateDue()));
             }
             $this->entityManager->persist($task);
             $this->entityManager->flush();

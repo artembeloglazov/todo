@@ -3,13 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\TaskRepository;
-use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
 #[ORM\Index(columns: ['title'], name: 'task__title__ind')]
+#[ORM\HasLifecycleCallbacks]
 class Task
 {
     #[ORM\Id]
@@ -70,7 +70,7 @@ class Task
         return $this->dateDue;
     }
 
-    public function setDateDue(DateTimeImmutable $dateDue): static
+    public function setDateDue(DateTimeInterface $dateDue): static
     {
         $this->dateDue = $dateDue;
 
