@@ -26,7 +26,6 @@ class TaskController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $task = new Task();
-		$task->getAssigned();
         $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
 
@@ -37,7 +36,7 @@ class TaskController extends AbstractController
             return $this->redirectToRoute('app_task_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('task/new.html.twig', [
+        return $this->render('task/new.html.twig', [
             'task' => $task,
             'form' => $form,
         ]);
@@ -63,7 +62,7 @@ class TaskController extends AbstractController
             return $this->redirectToRoute('app_task_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('task/edit.html.twig', [
+        return $this->render('task/edit.html.twig', [
             'task' => $task,
             'form' => $form,
         ]);

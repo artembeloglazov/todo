@@ -15,6 +15,8 @@ class CalendarType extends AbstractType
             ->add('isExport')
             ->add('fileName')
             ->add('name')
+            ->add('createdAt')
+            ->add('updatedAt')
         ;
     }
 

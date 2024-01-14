@@ -1,6 +1,6 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
 
-{% block title %}Calendar{% endblock %}
+<title>Calendar</title>
 
 {% block body %}
     <h1>Calendar</h1>
@@ -22,6 +22,14 @@
             <tr>
                 <th>Name</th>
                 <td>{{ calendar.name }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ calendar.createdAt ? calendar.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ calendar.updatedAt ? calendar.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>

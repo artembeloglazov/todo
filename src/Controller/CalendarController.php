@@ -36,7 +36,7 @@ class CalendarController extends AbstractController
             return $this->redirectToRoute('app_calendar_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('calendar/new.html.twig', [
+        return $this->render('calendar/new.html.twig', [
             'calendar' => $calendar,
             'form' => $form,
         ]);
@@ -62,7 +62,7 @@ class CalendarController extends AbstractController
             return $this->redirectToRoute('app_calendar_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('calendar/edit.html.twig', [
+        return $this->render('calendar/edit.html.twig', [
             'calendar' => $calendar,
             'form' => $form,
         ]);
